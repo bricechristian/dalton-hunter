@@ -21,7 +21,7 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
   const image =
     metaImage && metaImage.src
       ? `https://dalton-hunter.gatsbyjs.io${metaImage.src}`
-      : null
+      : '/dalton-og.jpg'
   const canonical = (pathname && pathname !== 'home') ? `https://dalton-hunter.gatsbyjs.io${pathname}` : null
 
   return (
