@@ -10,6 +10,7 @@ fields:
   config:
     required: false
   label: slug
+  description: A simple handle that'll be where the blog post links to (.i.e. all-things-charleston)
 - name: date
   type: datetime
   label: date
