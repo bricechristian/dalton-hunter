@@ -4,10 +4,16 @@ hide_body: true
 fields:
 - type: text
   name: title
-  label: title
+  label: Site Title
 - type: text
   name: description
-  label: description
+  label: Site Description
+- name: site_meta_image
+  type: file
+  config:
+    maxSize: 64
+  label: Site Meta Image
+  description: 'Recommended Image Dimensions: 1200x630'
 - type: text
   name: repository_url
   label: repository_url
