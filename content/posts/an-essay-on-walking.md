@@ -1,6 +1,6 @@
 ---
-date: 2019-07-31T22:43:31Z
-title: An Essay on Walking
+date: 2021-08-01T01:40:00Z
+title: Dalton You're My Hero
 hero_image: "/content/images/heather-shevlin-3B_NrzTjajc-unsplash.jpg"
 
 ---
