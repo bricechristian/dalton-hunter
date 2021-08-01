@@ -1,10 +1,10 @@
 {
-  "name": "foresry-starter-blog-gatsby",
+  "name": "dalton-hunter-blog",
   "private": true,
-  "description": "A simple starter blog to get up and developing quickly with Forestry & Gatsby",
+  "description": "Dalton Hunter Personal Blog",
   "license": "MIT",
   "version": "0.1.0",
-  "author": "kendall strautman",
+  "author": "brice christian",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop -o",
