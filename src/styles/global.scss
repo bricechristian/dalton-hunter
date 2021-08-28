@@ -1,9 +1,47 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Space+Grotesk:wght@600&display=swap');
+
+@font-face {
+  font-family: 'Creato Thin';
+  src:  url('/creatodisplay-thin.woff2') format('woff2'),
+        url('/creatodisplay-thin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Creato Regular';
+  src:  url('/creatodisplay-regular.woff2') format('woff2'),
+        url('/creatodisplay-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Creato Medium';
+  src:  url('/creatodisplay-medium.woff2') format('woff2'),
+        url('/creatodisplay-medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Creato Bold';
+  src:  url('/creatodisplay-bold.woff2') format('woff2'),
+        url('/creatodisplay-bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chapaza';
+  src:  url('/chapaza.woff2') format('woff2'),
+        url('/chapaza.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Chapaza Italic';
+  src:  url('/chapaza_italic.woff2') format('woff2'),
+        url('/chapaza_italic.woff') format('woff');
+}
+
 
 body {
-  font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Creato Regular', sans-serif;
   overflow-x: hidden;
-  color: #000;
+  background-color: #d8d6d0;
+  color: #1c1b1b;
   font-size: 16px;
 }
 
@@ -23,19 +61,33 @@ ul {
   margin: 0;
 }
 
-//TYPOGRAPHY-------------------------------------
-
-h1, h2, h3, h4, h5, h6, p {
-  font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif;
+//LAYOUT-----------------------------------------
+.grid_3 {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
 }
 
-h1, h2 {
-  font-weight: 500;
+.no_marg {
+  margin-bottom: 0;
+}
+
+//TYPOGRAPHY-------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chapaza', sans-serif;
+  font-weight: normal;
 }
 
 h1 {
   font-size: 2rem;
-  letter-spacing: -1px;
+  letter-spacing: -.035em;
   line-height: 1.1875;
 }
 
@@ -53,11 +105,72 @@ h3 {
   font-weight: normal;
 }
 
+.text_4xl {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+}
+
 p {
   font-size: 1.2rem;
   letter-spacing: -.5px;
   line-height: 1.5;
-  color: #464646;
+}
+
+strong {
+  font-family: 'Creato Bold';
+}
+
+.chapaza {
+  font-family: 'Chapaza', sans-serif;
+  font-weight: normal; 
+}
+
+.chapaza-italic {
+  font-family: 'Chapaza Italic', sans-serif;
+  font-weight: normal;
+}
+
+.caps {
+  font-family: 'Creato Bold';
+  font-size: .875rem;
+  letter-spacing: .15em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.line_height_1 {
+  line-height: 1;
+}
+
+//BUTTONS----------------------------------------
+.arrow_link {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Creato Bold';
+  font-size: .875rem;
+  letter-spacing: .15em;
+  font-weight: normal;
+  text-transform: uppercase;  
+  color: #1c1b1b;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid #1c1b1b;
+  &:after {
+    content: "";
+    display: inline-block;
+    margin-left: .5rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.215 1l5.906 6.302-5.906 6.302M0 7.302h14.12' stroke='%231c1b1b' stroke-width='1.8'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 0 3px;
+    transform: rotate(0deg);
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    transition: .3s;
+  }
+  &:hover:after {
+    transform: rotate(-45deg);
+  }
 }
 
 // gatsby-image plugin container-----------------
@@ -91,5 +204,19 @@ p {
 
   p {
     line-height: 1.4375;
+  }
+}
+
+@media (max-width: 830px){
+  .grid_3 {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px){
+  .grid_3 {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }

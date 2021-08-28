@@ -1,23 +1,13 @@
 .info_blurb {
-  max-width: 800px;
-  padding: 1.5rem 1.25rem;
+  padding: 1.25rem;
+  border: 6px solid #EBEBEB;
+  margin-top: -6px;
+  flex: 1;
   p {
     color: #EBEBEB;
     font-size: 1.4rem;
   }
   h2 div p {
     margin-bottom: 1rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .info_blurb {
-    padding: 2rem;
-  }
-}
-
-@media(min-width: 1440px) {
-  .info_blurb {
-    padding: 3rem;
   }
 }

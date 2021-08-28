@@ -9,6 +9,8 @@
   height: 60vh;
   width: 100%;
   margin: 0;
+  margin-top: -6px;
+  border: 6px solid #1c1b1b;
   img {
     margin-bottom: 0;
     object-fit: cover;
@@ -46,10 +48,6 @@
     padding: 1.5rem 1rem;
     line-height: 1.2;
   }
-  p {
-    color: #464646;
-    font-weight: normal;
-  }
   ul {
     list-style: initial;
   }
@@ -57,6 +55,9 @@
     margin-left: 1.25rem;
     margin-bottom: 1.25rem;
     padding-left: 1.45rem;
+  }
+  img {
+    border: 6px solid #1c1b1b;
   }
 }
 
@@ -112,7 +113,7 @@
     text-align: center;
     padding: 2rem 0;
     h1 {
-      max-width: 500px;
+      // max-width: 500px;
       margin: 0 auto 0.66rem auto;
     }
   }

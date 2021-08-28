@@ -14,10 +14,10 @@ export default function Header(props) {
         aria-label="main navigation"
       >
         <Link to="/">
-          <h1>{props.title}</h1>
+          <h1>Charleston<span className="chapaza-italic">Home</span>Travels</h1>
         </Link>
         <div>
-          <h1>
+          <h1 className="caps">
             <Link
               to={
                 props.page === 'info'

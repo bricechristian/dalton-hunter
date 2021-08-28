@@ -1,0 +1,13 @@
+.intro_card {
+    padding: 1.25rem;
+    margin-top: -6px;
+    border: 6px solid #1c1b1b;
+    grid-column: 1 / 3;
+    // min-height: calc(100vh - 84px);
+}
+
+@media (max-width: 600px){
+    .intro_card {
+        grid-column: 1 / 2;
+    }
+  }

@@ -8,14 +8,14 @@ export default function BlogList() {
   const blogData = useBlogData()
   function renderBlogData() {
     return (
-      <div>
+      <>
         {blogData
           .filter(blog => blog.node.frontmatter.title !== "")
           .map(blog => {
             return (
-              <Link to={`/blog/${blog.node.fields.slug}`} key={blog.node.id}>
-                <li className={blogListStyles.li} key={blog.node.fields.slug}>
-                  <div className={blogListStyles.list__hero}>
+              <Link to={`/blog/${blog.node.fields.slug}`} key={blog.node.id} className={blogListStyles.card_wrap}>
+                <div className={blogListStyles.card} key={blog.node.fields.slug}>
+                  <div className={blogListStyles.card_hero}>
                     <Img 
                       fluid={
                         blog.node.frontmatter.hero_image.childImageSharp.fluid
@@ -24,21 +24,19 @@ export default function BlogList() {
                     />
                   </div>
                   <div className={blogListStyles.list__info}>
-                    <h2>{blog.node.frontmatter.title}</h2>
-                    <h3>{blog.node.frontmatter.date}</h3>
+                    <h2 className="chapaza-italic">{blog.node.frontmatter.title}</h2>
+                    <h3 className="caps">{blog.node.frontmatter.date}</h3>
                     <p>{blog.node.excerpt}</p>
                   </div>
-                </li>
+                </div>
               </Link>
             )
           })}
-      </div>
+      </>
     )
   }
   return (
-    <section>
-      <ul className={blogListStyles.list}>{renderBlogData()}</ul>
-    </section>
+      <>{renderBlogData()}</>
   )
 }
 
