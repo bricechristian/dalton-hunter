@@ -11,6 +11,6 @@ fields:
     schema:
       format: html-blocks
   label: Headline
-  description: Enter description here
+  description: Enter headline here
 pages:
 - content/data/info.json
