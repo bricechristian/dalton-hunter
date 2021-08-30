@@ -1,0 +1,51 @@
+.form_wrap {
+    max-width: 500px;
+    margin: 2rem 0 0;
+}
+
+.field_wrap {
+    position: relative;
+    margin-bottom: 2rem;
+    min-height: 2.75rem;
+    .field_label {
+        position: absolute;
+        font-family: 'Creato Bold';
+        color: rgba(244,240,236, 0.25);
+        transform: translateY(0px);
+        transition: .2s transform, .2s font-size;
+        pointer-events: none;
+    }
+    &.active .field_label {
+        font-size: .875rem;
+        color: #d8d6d0;
+        transform: translateY(-1.25rem);
+    }    
+    .field_input {
+        width: 100%;
+        color: #d8d6d0;
+        background-color: transparent;
+        outline: none;
+        box-shadow: none;
+        -webkit-appearance: none;
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid rgba(244,240,236, 0.25);
+        padding-bottom: .25rem;
+        &.field_textarea {
+            margin-bottom: 1rem;
+        }    
+    }
+    &.active .field_input {
+        border-color: #d8d6d0;
+    }
+    .field_error {
+        font-family: 'Creato Bold';
+        font-size: .75rem;
+        letter-spacing: .15em;
+        font-weight: normal;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: -.25rem;
+        color: rgba(244,240,236, 0.66);
+    }
+}

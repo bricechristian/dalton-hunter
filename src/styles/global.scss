@@ -101,12 +101,15 @@ h3 {
   font-size: 1.2rem;
   letter-spacing: -.5px;
   line-height: 1.1875;
-  color: #A0A0A0;
   font-weight: normal;
 }
 
 .text_4xl {
-  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-size: clamp(1.9rem, 5vw, 4rem);
+}
+
+.text_3xl {
+  font-size: clamp(1.35rem, 4vw, 3rem);
 }
 
 p {
@@ -142,6 +145,27 @@ strong {
 }
 
 //BUTTONS----------------------------------------
+.button {
+  background: none;
+  border: 0;
+  border: 2px solid #d8d6d0;
+  padding: .5rem 1.25rem;
+  background: #d8d6d0;
+  color: #1c1b1b;
+  font-family: 'Creato Bold';
+  font-size: .75rem;
+  letter-spacing: .15em;
+  font-weight: normal;
+  text-transform: uppercase;
+  min-width: 125px;
+  transition: .3s;
+  cursor: pointer;
+  &:hover {
+    background: transparent;
+    color: #d8d6d0;
+  }
+}
+
 .arrow_link {
   display: inline-flex;
   justify-content: space-between;
@@ -153,6 +177,8 @@ strong {
   text-transform: uppercase;  
   color: #1c1b1b;
   padding-bottom: .5rem;
+  background: none;
+  border: 0;
   border-bottom: 2px solid #1c1b1b;
   &:after {
     content: "";

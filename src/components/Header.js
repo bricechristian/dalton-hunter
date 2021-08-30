@@ -17,7 +17,7 @@ export default function Header(props) {
           <h1>Charleston<span className="chapaza-italic">Home</span>Travels</h1>
         </Link>
         <div>
-          <h1 className="caps">
+          <div className="caps">
             <Link
               to={
                 props.page === 'info'
@@ -30,7 +30,7 @@ export default function Header(props) {
                 ? "close"
                 : "info"}
             </Link>
-          </h1>
+          </div>
         </div>
       </nav>
     </header>

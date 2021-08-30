@@ -82,7 +82,8 @@
       margin-left: -6px;
     }      
     .card_hero {
-      height: 33vw !important;
+      height: clamp(260px, 33vw, 600px) !important;
+      max-height: 600px;
     }
   }
 }
@@ -128,5 +129,8 @@
     &:nth-child(3n){
       margin-left: 0;
     }   
+    .card_hero {
+      height: clamp(260px, 60vw, 600px) !important;
+    }
   }
 }

@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
+import Footer from "../components/Footer"
 import SEO from "../components/Seo"
 import { graphql, Link } from "gatsby"
 import useBlogData from '../static_queries/useBlogData'
@@ -54,6 +55,7 @@ export default function Blog(props) {
           <Link to={`/blog/${nextSlug}`} className="arrow_link">{nextTitle}</Link>
         </div>
       </article>
+      <Footer />
     </Layout>
   )
 }
