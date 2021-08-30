@@ -1,5 +1,7 @@
 import React from "react"
 import { Formik, Form, Field } from 'formik'
+import emailjs from 'emailjs-com';
+
 import formStyles from "../styles/components/infoform.module.scss"
 
 const encode = (data) => {
@@ -18,19 +20,13 @@ export default function InfoForm() {
         }}
         onSubmit={
             (values, actions) => {
-              fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encode({ "form-name": "contact", ...values })
-              })
-              .then(() => {
-                alert('Success');
-                actions.resetForm()
-              })
-              .catch(() => {
-                alert('Error');
-              })
-              .finally(() => actions.setSubmitting(false))
+                console.log(values)
+                // emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', ...values, 'YOUR_USER_ID')
+                // .then((result) => {
+                //     console.log(result.text);
+                // }, (error) => {
+                //     console.log(error.text);
+                // });
             }
         }
         validate={values => {
