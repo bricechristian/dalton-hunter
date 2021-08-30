@@ -8,15 +8,11 @@ export default function useSiteMetadata() {
           title
           description
           repoUrl
+          homeData {
+            headline
+          }          
           infoData {
-            contact {
-              email
-              github_handle
-              twitter_handle
-            }
-            cta
             description
-            background_color
           }
         }
       }
