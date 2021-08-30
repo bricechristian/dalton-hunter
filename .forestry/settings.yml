@@ -6,6 +6,13 @@ webhook_url:
 sections:
 - type: heading
   label: Content
+- type: document
+  path: content/data/home.json
+  label: Home Page
+  match: "**/*"
+- type: document
+  path: content/data/info.json
+  label: Info Page
 - type: directory
   path: content/posts
   label: Blog Posts
@@ -14,9 +21,6 @@ sections:
   new_doc_ext: md
   templates:
   - blog-post
-- type: document
-  path: content/data/info.json
-  label: Info Page
 - type: heading
   label: General Config
 - type: document

@@ -1,16 +1,14 @@
 ---
-label: Info Page
+label: Home Page
 hide_body: true
 fields:
-- name: description
+- name: headline
   type: textarea
   default: ''
   config:
     required: false
     wysiwyg: false
     schema:
-      format: html-blocks
+      format: markdown
   label: Headline
   description: Enter headline here
-pages:
-- content/data/info.json
