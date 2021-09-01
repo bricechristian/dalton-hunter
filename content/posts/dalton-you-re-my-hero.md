@@ -5,6 +5,8 @@ title: Dalton You're My Hero
 category:
 - charleston
 slug: dalton-my-hero
+excerpt: Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. Donec
+  quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
 
 ---
 Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Maecenas vestibulum mollis diam. Fusce ac felis sit amet ligula pharetra condimentum. Maecenas egestas arcu quis ligula mattis placerat.
