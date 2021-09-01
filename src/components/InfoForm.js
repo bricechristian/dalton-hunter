@@ -1,7 +1,5 @@
-import React from "react"
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik'
-import emailjs from 'emailjs-com';
-
 import formStyles from "../styles/components/infoform.module.scss"
 
 const encode = (data) => {
@@ -11,6 +9,9 @@ const encode = (data) => {
   }
 
 export default function InfoForm() {
+
+ const [formStatus, setFormStatus] = useState(false);
+
   return (
     <Formik
         initialValues={{
@@ -20,13 +21,20 @@ export default function InfoForm() {
         }}
         onSubmit={
             (values, actions) => {
-                console.log(values)
-                // emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', ...values, 'YOUR_USER_ID')
-                // .then((result) => {
-                //     console.log(result.text);
-                // }, (error) => {
-                //     console.log(error.text);
-                // });
+              fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({ "form-name": "contact", ...values })
+              })
+              .then(() => {
+                alert('Success');
+                actions.resetForm()
+                setFormStatus(true);
+              })
+              .catch(() => {
+                alert('Error');
+              })
+              .finally(() => actions.setSubmitting(false))
             }
         }
         validate={values => {
@@ -38,52 +46,53 @@ export default function InfoForm() {
             if(!values.email || !emailRegex.test(values.email)) {
                 errors.email = 'Valid Email Required'
             }
-            if(!values.message) {
-                errors.message = 'Required'
-            }
             return errors;
         }}
     >
         {() => (
+            
             <Form name="contact" data-netlify={true} className={formStyles.form_wrap}>
 
-                <Field name="name">
-                    {({ field, meta }) => (
-                    <div className={`${formStyles.field_wrap} ${meta.value !== '' ? formStyles.active : ''}`}>
-                        <label className={formStyles.field_label} htmlFor="name">Name</label>
-                        <input type="text" {...field} className={formStyles.field_input}/>
-                        {meta.touched &&
-                        meta.error && <div className={formStyles.field_error}>{meta.error}</div>}
-                    </div>
-                    )}
-                </Field>
+                { formStatus === true ? 
+                    <div className={formStyles.form_status}>Thanks for reaching out! We can't wait to connect with you.</div> : 
+                    <>
+                        <Field name="name">
+                            {({ field, meta }) => (
+                            <div className={`${formStyles.field_wrap} ${meta.value !== '' ? formStyles.active : ''}`}>
+                                <label className={formStyles.field_label} htmlFor="name">Name*</label>
+                                <input type="text" {...field} className={formStyles.field_input}/>
+                                {meta.touched &&
+                                meta.error && <div className={formStyles.field_error}>{meta.error}</div>}
+                            </div>
+                            )}
+                        </Field>
+                        <Field name="email">
+                            {({ field, meta }) => (
+                            <div className={`${formStyles.field_wrap} ${meta.value !== '' ? formStyles.active : ''}`}>
+                                <label className={formStyles.field_label} htmlFor="email">Email*</label>
+                                <input type="email" {...field} className={formStyles.field_input}/>
+                                {meta.touched &&
+                                meta.error && <div className={formStyles.field_error}>{meta.error}</div>}
+                            </div>
+                            )}
+                        </Field>
+                        <Field name="message">
+                            {({ field, meta }) => (
+                            <div className={`${formStyles.field_wrap} ${meta.value !== '' ? formStyles.active : ''}`}>
+                                <label className={formStyles.field_label} htmlFor="message">Message</label>
+                                <textarea {...field} className={`${formStyles.field_input} ${formStyles.field_textarea}`} rows="1"></textarea>
+                            </div>
+                            )}
+                        </Field>               
+        
+                        <button type="submit" className="button">Submit</button>
+                    </>
+                }
 
-                <Field name="email">
-                    {({ field, meta }) => (
-                    <div className={`${formStyles.field_wrap} ${meta.value !== '' ? formStyles.active : ''}`}>
-                        <label className={formStyles.field_label} htmlFor="email">Email</label>
-                        <input type="email" {...field} className={formStyles.field_input}/>
-                        {meta.touched &&
-                        meta.error && <div className={formStyles.field_error}>{meta.error}</div>}
-                    </div>
-                    )}
-                </Field>
-
-
-                <Field name="message">
-                    {({ field, meta }) => (
-                    <div className={`${formStyles.field_wrap} ${meta.value !== '' ? formStyles.active : ''}`}>
-                        <label className={formStyles.field_label} htmlFor="message">Message</label>
-                        <textarea {...field} className={`${formStyles.field_input} ${formStyles.field_textarea}`} rows="1"></textarea>
-                        {meta.touched &&
-                        meta.error && <div className={formStyles.field_error}>{meta.error}</div>}
-                    </div>
-                    )}
-                </Field>               
-
-                <button type="submit" className="button">Submit</button>
             </Form>
+
         )}
     </Formik>
+
   )
 }
