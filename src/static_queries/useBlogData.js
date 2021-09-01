@@ -18,7 +18,7 @@ export default function useBlogData() {
                 }
               }
             }
-            excerpt(pruneLength: 200)
+            excerpt
             fields {
               slug
             }

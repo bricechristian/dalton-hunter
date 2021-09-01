@@ -19,10 +19,10 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
 
   const metaDescription = description || site.siteMetadata.description
   const image =
-    metaImage && metaImage.src
-      ? `https://dalton-hunter.gatsbyjs.io${metaImage.src}`
+    metaImage
+      ? metaImage
       : '/dalton-og.jpg'
-  const canonical = (pathname && pathname !== 'home') ? `https://dalton-hunter.gatsbyjs.io${pathname}` : null
+  const canonical = (pathname && pathname !== 'home') ? `https://charleston-home-travels.netlify.app/${pathname}` : null
 
   return (
     <Helmet
@@ -80,11 +80,11 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname }) {
                 },
                 {
                   property: "og:image:width",
-                  content: metaImage.width,
+                  content: '1200',
                 },
                 {
                   property: "og:image:height",
-                  content: metaImage.height,
+                  content: '630',
                 },
                 {
                   name: "twitter:card",

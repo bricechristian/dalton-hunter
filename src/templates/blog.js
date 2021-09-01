@@ -35,7 +35,7 @@ export default function Blog(props) {
 
   return (
     <Layout>
-      <SEO title={data.frontmatter.title} />
+      <SEO title={data.frontmatter.title} description={data.excerpt} image={data.frontmatter.hero_image.absolutePath} />
       <article className={blogTemplateStyles.blog}>
         <figure className={blogTemplateStyles.blog__hero}>
           <Img
@@ -72,6 +72,7 @@ export const getPostData = graphql`
         title
         date(formatString: "MMMM Do, YYYY")
         hero_image {
+          absolutePath
           childImageSharp {
             fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid
@@ -79,6 +80,7 @@ export const getPostData = graphql`
           }
         }
       }
+      excerpt
       html
     }
   }

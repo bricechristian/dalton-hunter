@@ -27,9 +27,8 @@ export default function InfoForm() {
                 body: encode({ "form-name": "contact", ...values })
               })
               .then(() => {
-                alert('Success');
-                actions.resetForm()
                 setFormStatus(true);
+                actions.resetForm()
               })
               .catch(() => {
                 alert('Error');
