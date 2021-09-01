@@ -25,6 +25,18 @@ fields:
   type: tag_list
   default: []
   label: category
+- name: excerpt
+  type: textarea
+  default: ''
+  config:
+    required: true
+    wysiwyg: false
+    schema:
+      format: markdown
+    max: 158
+    min: 120
+  label: excerpt
+  description: Used for SEO
 - name: hero_image
   type: file
   config:
