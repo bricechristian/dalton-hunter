@@ -35,7 +35,7 @@ export default function Blog(props) {
 
   return (
     <Layout>
-      <SEO title={`${data.frontmatter.title} | Blog`} description={data.excerpt} image={data.frontmatter.hero_image.absolutePath} pageUrl={`https://charleston-home-travels.netlify.app/blog/${data.fields.slug}`} />
+      <SEO title={`${data.frontmatter.title} | Blog`} description={data.excerpt} image={`https://charleston-home-travels.netlify.app${data.frontmatter.hero_image.childImageSharp.fixed.src}`} pageUrl={`https://charleston-home-travels.netlify.app/blog/${data.fields.slug}`} />
       <article className={blogTemplateStyles.blog}>
         <figure className={blogTemplateStyles.blog__hero}>
           <Img
@@ -72,8 +72,10 @@ export const getPostData = graphql`
         title
         date(formatString: "MMMM Do, YYYY")
         hero_image {
-          absolutePath
           childImageSharp {
+            fixed {
+                src
+            }
             fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid
             }

@@ -21,7 +21,7 @@ function SEO({ description, lang, meta, image: metaImage, title, pathname, pageU
   const image =
     metaImage
       ? metaImage
-      : '/dalton-og.jpg'
+      : 'https://charleston-home-travels.netlify.app/dalton-og.jpg'
   const url = (pathname && pathname !== 'home') ? `https://charleston-home-travels.netlify.app/` : pageUrl
   const canonical = (pathname && pathname !== 'home') ? `https://charleston-home-travels.netlify.app/${pathname}` : null
   return (

@@ -12,6 +12,9 @@ export default function useBlogData() {
               title
               hero_image {
                 childImageSharp {
+                  fixed {
+                    src
+                  }
                   fluid( maxWidth: 800 ) {
                     ...GatsbyImageSharpFluid
                   }
