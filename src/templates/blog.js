@@ -35,7 +35,7 @@ export default function Blog(props) {
 
   return (
     <Layout>
-      <SEO title={data.frontmatter.title} description={data.excerpt} image={data.frontmatter.hero_image.absolutePath} />
+      <SEO title={`${data.frontmatter.title} | Blog`} description={data.excerpt} image={data.frontmatter.hero_image.absolutePath} pageUrl={`https://charleston-home-travels.netlify.app/blog/${data.fields.slug}`} />
       <article className={blogTemplateStyles.blog}>
         <figure className={blogTemplateStyles.blog__hero}>
           <Img
